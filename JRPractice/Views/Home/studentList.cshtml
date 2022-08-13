@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "studentList";
+}
+@{
+    ViewBag.Title = "studentList";
+}
+<link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+<table id="example" class="table table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>Student Name</th>
+            <th>Address</th>
+            <th>Class</th>
+            <th>Age</th>
+            <th>Hobbies</th>
+            <th>Gender</th>
+            <th>State</th>
+            @*<th>City</th>
+            <th>Pincode</th>*@
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    $('#example').DataTable({
+        ajax: {
+            url: "/Home/studentList",
+            method: 'GET',
+            datatype: 'json',
+        
+        },
+        "columns": [
+            { 'data': 'StudentName' },
+            { 'data': 'Address' },
+            { 'data': 'Class' },
+            { 'data': 'Age' },
+            { 'data': 'Hobbies' },
+            { 'data': 'Gender' },
+            { 'data': 'State' },
+            { 'data': 'City' },
+            //{ 'data': 'Pincode' }
+            //{ 'data': 'Photo' }
+        ]
+    });
+</script>
+
+
